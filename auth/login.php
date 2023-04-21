@@ -5,7 +5,7 @@
 
 //VALIDATE FORM SUBMISSION
 if(isset($_POST['submit'])) {
- if(empty($_POST['username']) OR empty($_POST['email']) OR empty($_POST['password'])) {
+ if(empty($_POST['email']) OR empty($_POST['password'])) {
       echo "<script>alert('One or more inputs are empty')</script>";
     } else {
 
@@ -26,7 +26,9 @@ if(isset($_POST['submit'])) {
       if($login->rowCount() > 0) {
 
         if(password_verify($password, $fetch['mypassword'])) {
+
           echo "<script>alert('LOGGED IN')</script>";
+
         } else {
 
           echo "<script>alert('EMAIL OR PASSWORD IS INCORRECT')</script>";
