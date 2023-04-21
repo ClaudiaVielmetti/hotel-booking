@@ -81,7 +81,7 @@ define("APPURL", "http://localhost/hotel-booking/hotel-booking");
 							<li>
 								<hr class="dropdown-divider">
 							</li>
-							<li><a class="dropdown-item" href="#">Something else here</a></li>
+							<li><a class="dropdown-item" href="<?php echo APPURL; ?>/auth/logout.php">Logout</a></li>
 						</ul>
 					</li>
 					<?php endif; ?>
