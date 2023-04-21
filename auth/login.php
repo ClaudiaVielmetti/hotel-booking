@@ -27,7 +27,15 @@ if(isset($_POST['submit'])) {
 
         if(password_verify($password, $fetch['mypassword'])) {
 
-          echo "<script>alert('LOGGED IN')</script>";
+          //echo "<script>alert('LOGGED IN')</script>";
+
+          //start session variables
+
+          $_SESSION['username'] = $fetch['username'];
+          $_SESSION['id'] = $fetch['id'];
+
+          header("location : " .APPURL. "");
+
 
         } else {
 
@@ -47,7 +55,7 @@ if(isset($_POST['submit'])) {
 
 ?>
 
-    <div class="hero-wrap js-fullheight" style="background-image: url('images/image_2.jpg');" data-stellar-background-ratio="0.5">
+    <div class="hero-wrap js-fullheight" style="background-image: url('<?php echo APPURL; ?>/images/image_2.jpg');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
