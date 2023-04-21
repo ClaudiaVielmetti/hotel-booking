@@ -3,6 +3,13 @@
 
 <?php 
 
+//using js to redirect as php is giving issues
+//this is to not be able to access the login page if already logged in
+
+if(isset($_SESSION['username'])){
+  echo "<script>window.location.href='" .APPURL. "' </script>";
+}
+
 //VALIDATE FORM SUBMISSION
 if(isset($_POST['submit'])) {
  if(empty($_POST['email']) OR empty($_POST['password'])) {
