@@ -2,6 +2,7 @@
 <?php require "../config/config.php"; ?> 
 
 <?php 
+//validate the data
 
     if(isset($_POST['submit'])) {
 
