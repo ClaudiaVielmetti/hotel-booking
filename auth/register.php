@@ -1,4 +1,35 @@
 <?php require "../includes/header.php"; ?>
+<?php require "../config/config.php"; ?> 
+
+<?php 
+
+    if(isset($_POST['submit'])) {
+
+        if(empty($_POST['username']) OR empty($_POST['email']) OR empty($_POST['password'])) {
+          echo "<script>alert('One or more inputs are empty')</script>";
+        } else {
+
+        $username = $_post['username'];
+        $email = $_post['email'];
+        $password =password_hash($_post['password'], PASSWORD_DEFAULT);
+
+
+        $insert = $conn->prepare("INSERT INTO users (username, email, mypassword)
+        VALUES (:username, :email, :mypassword)");
+
+        $insert->execute([
+          ":username" => $username,
+          ":email" => $email,
+          ":mypassword" => $password, 
+        ]);
+
+        header("location: login.php");
+
+
+      }
+    }
+
+?>
 
     <div class="hero-wrap js-fullheight" style="background-image: url('<?php echo APPURL; ?>/images/image_2.jpg');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
@@ -17,31 +48,31 @@
     	<div class="container">
 	    	<div class="row justify-content-middle" style="margin-left: 397px;">
 	    		<div class="col-md-6 mt-5">
-						<form action="#" class="appointment-form" style="margin-top: -568px;">
+						<form action="register.php" method="POST" class="appointment-form" style="margin-top: -568px;">
 							<h3 class="mb-3">Register</h3>
 							<div class="row">
 								<div class="col-md-12">
 									<div class="form-group">
-			    					    <input type="text" class="form-control" placeholder="Username">
+			    					    <input type="text" name="username" class="form-control" placeholder="Username">
 			    				    </div>
 								</div>
                                 <div class="col-md-12">
 									<div class="form-group">
-			    					    <input type="text" class="form-control" placeholder="Email">
+			    					    <input type="text" name="email" class="form-control" placeholder="Email">
 			    				    </div>
 								</div>
                                 <div class="col-md-12">
 									<div class="form-group">
-			    					    <input type="password" class="form-control" placeholder="Password">
+			    					    <input type="password" name="password" class="form-control" placeholder="Password">
 			    				    </div>
 								</div>
 								
 							
 							
 								<div class="col-md-12">
-                                    <div class="form-group">
-                                        <input type="submit" value="Register" class="btn btn-primary py-3 px-4">
-                                    </div>
+               <div class="form-group">
+                  <input type="submit" name="submit" value="Register" class="btn btn-primary py-3 px-4">
+                </div>
 								</div>
 							</div>
 	    			</form>
