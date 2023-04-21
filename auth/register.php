@@ -9,9 +9,9 @@
           echo "<script>alert('One or more inputs are empty')</script>";
         } else {
 
-        $username = $_post['username'];
-        $email = $_post['email'];
-        $password =password_hash($_post['password'], PASSWORD_DEFAULT);
+        $username = $_POST['username'];
+        $email = $_POST['email'];
+        $password =password_hash($_POST['password'], PASSWORD_DEFAULT);
 
 
         $insert = $conn->prepare("INSERT INTO users (username, email, mypassword)
