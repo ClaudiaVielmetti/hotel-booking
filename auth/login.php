@@ -34,7 +34,7 @@ if(isset($_POST['submit'])) {
           $_SESSION['username'] = $fetch['username'];
           $_SESSION['id'] = $fetch['id'];
 
-          header("location : " .APPURL. "");
+          header("location: " .APPURL. "");
 
 
         } else {
