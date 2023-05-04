@@ -37,18 +37,18 @@
 
 				<?php foreach($allHotels as $hotel) : ?>
 				<div class="col-md-4 d-flex services align-self-stretch px-4 ftco-animate">
-						<div class="d-block services-wrap text-center">
-							<div class="img" style="background-image: url(.//images/<?php echo $hotel->image; ?>);"></div>
-								<div class="media-body py-4 px-3">
-									<h3 class="heading"><?php echo $hotel->name; ?></h3>
-									<p><?php echo $hotel->description; ?></p>
-									<p><?php echo $hotel->location; ?></p>
-									<p><a href="rooms.html" class="btn btn-primary">View rooms</a></p>
-								</div>
-							</div>      
-					</div>
+				<div class="d-block services-wrap text-center">
+					<div class="img" style="background-image: url(.//images/<?php echo $hotel->image; ?>);"></div>
+						<div class="media-body py-4 px-3">
+							<h3 class="heading"><?php echo $hotel->name; ?></h3>
+							<p><?php echo $hotel->description; ?></p>
+							<p><?php echo $hotel->location; ?></p>
+							<p><a href="rooms.php?id=<?php echo $hotel->id; ?>" class="btn btn-primary">View rooms</a></p>
+						</div>
+					</div>      
 				
 			 	</div>
+				<?php endforeach; ?>
 			</div>
     	</div>
     </section>
