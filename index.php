@@ -1,4 +1,19 @@
 <?php require "includes/header.php"; ?>
+<?php require "config/config.php"; ?>
+
+<!--connection hotels table--> 
+
+<?php 
+	//is hotel available or not
+	$hotels =$conn->query("SELECT * FROM hotels WHERE status = 1");
+	$hotels->execute();
+
+	$allHotels = $hotels->fetchAll(PDO::FETCH_OBJ);
+
+
+?>
+
+
 
     <div class="hero-wrap js-fullheight" style="background-image: url('images/image_2.jpg');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
