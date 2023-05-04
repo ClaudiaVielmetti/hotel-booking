@@ -32,41 +32,24 @@
     <section class="ftco-section ftco-services">
     	<div class="container">
     		<div class="row">
-          <div class="col-md-4 d-flex services align-self-stretch px-4 ftco-animate">
-            <div class="d-block services-wrap text-center">
-              <div class="img" style="background-image: url(.//images/services-1.jpg);"></div>
-              <div class="media-body py-4 px-3">
-                <h3 class="heading">Sheraton</h3>
-                <p>We’ll give you the world. Collaborative meeting spaces | Refined design | Elevated Sheraton Clubs | Best-in-class service.</p>
-                <p>Location: Pretoria.</p>
-                <p><a href="rooms.html" class="btn btn-primary">View rooms</a></p>
-              </div>
-            </div>      
-          </div>
-          <div class="col-md-4 d-flex services align-self-stretch px-4 ftco-animate">
-            <div class="d-block services-wrap text-center">
-              <div class="img" style="background-image: url(.//images/palace.jpg);"></div>
-              <div class="media-body py-4 px-3">
-                <h3 class="heading">The Palace Hotel</h3>
-                <p>The Palace of the Lost City at Sun City lavishes its guests with luxurious surrounds and impeccable service. 
-					</p>
-				<p>Location: Pilanesberg.</p>
-                <p><a href="#" class="btn btn-primary">View rooms</a></p>
-              </div>
-            </div>    
-          </div>
-          <div class="col-md-4 d-flex services align-self-stretch px-4 ftco-animate">
-            <div class="d-block services-wrap text-center">
-              <div class="img" style="background-image: url(.//images/ritz-hotel.jpg);"></div>
-              <div class="media-body py-4 px-3">
-                <h3 class="heading">The Ritz</h3>
-                <p>At The Ritz-Carlton Hotel Company, L.L.C., "We are Ladies and Gentlemen serving Ladies and Gentlemen." </p>
-				<p>Location: Cape Town.</p>
-                <p><a href="#" class="btn btn-primary">View rooms</a></p>
-              </div>
-            </div>      
-          </div>
-        </div>
+
+				<!--Loop  ((for each loop ))through the array to get hotel data -->
+
+				<?php foreach($allHotels as $hotel) : ?>
+				<div class="col-md-4 d-flex services align-self-stretch px-4 ftco-animate">
+						<div class="d-block services-wrap text-center">
+							<div class="img" style="background-image: url(.//images/<?php echo $hotel->image; ?>);"></div>
+								<div class="media-body py-4 px-3">
+									<h3 class="heading"><?php echo $hotel->name; ?></h3>
+									<p><?php echo $hotel->description; ?></p>
+									<p><?php echo $hotel->location; ?></p>
+									<p><a href="rooms.html" class="btn btn-primary">View rooms</a></p>
+								</div>
+							</div>      
+					</div>
+				
+			 	</div>
+			</div>
     	</div>
     </section>
 
@@ -272,4 +255,4 @@
 		</section>
 
 
-<?php require "includes/footer.php"; ?>  
+<?php require "includes/footer.php"; ?>
