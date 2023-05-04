@@ -87,7 +87,7 @@ $allRooms = $rooms->fetchAll(PDO::FETCH_OBJ);
 						</div>
 					</div>
 				</div>
-
+				<!--End loop -->
 			<?php endforeach; ?>
 
 
