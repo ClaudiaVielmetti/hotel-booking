@@ -92,6 +92,7 @@ $allRooms = $rooms->fetchAll(PDO::FETCH_OBJ);
 
 
 		</div>
+	</div>
 </section>
 
 
