@@ -1,7 +1,7 @@
 <?php require "includes/header.php"; ?>
 <?php require "config/config.php"; ?>
 
-<!--connection hotels table--> 
+<!--connection hotels table DB--> 
 
 <?php 
 	//is hotel available or not
