@@ -17,11 +17,11 @@ define("APPURL", "http://localhost/hotel-booking/hotel-booking");
 	<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,500,500i,600,600i,700,700i&display=swap" rel="stylesheet">
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	
+
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
-	
+
 
 	<link rel="stylesheet" href="<?php echo APPURL; ?>/css/animate.css">
 
@@ -69,25 +69,25 @@ define("APPURL", "http://localhost/hotel-booking/hotel-booking");
 					<li class="nav-item"><a href="rooms.html" class="nav-link">Apartment Room</a></li>
 					<li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
 
-					<?php if(!isset($_SESSION['username'])) : ?>
+					<?php if (!isset($_SESSION['username'])) : ?>
 						<li class="nav-item"><a href="<?php echo APPURL; ?>/auth/login.php " class="nav-link">Login</a></li>
 						<li class="nav-item"><a href="<?php echo APPURL; ?>/auth/register.php" class="nav-link">Register</a></li>
-					<?php else : ?>	
+					<?php else : ?>
 
 
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-							<?php echo $_SESSION['username']; ?>
-						</a>
-						<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="#">Action</a></li>
-							<li><a class="dropdown-item" href="#">Another action</a></li>
-							<li>
-								<hr class="dropdown-divider">
-							</li>
-							<li><a class="dropdown-item" href="<?php echo APPURL; ?>/auth/logout.php">Logout</a></li>
-						</ul>
-					</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								<?php echo $_SESSION['username']; ?>
+							</a>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item" href="#">Action</a></li>
+								<li><a class="dropdown-item" href="#">Another action</a></li>
+								<li>
+									<hr class="dropdown-divider">
+								</li>
+								<li><a class="dropdown-item" href="<?php echo APPURL; ?>/auth/logout.php">Logout</a></li>
+							</ul>
+						</li>
 					<?php endif; ?>
 				</ul>
 
