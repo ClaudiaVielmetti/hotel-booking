@@ -17,6 +17,11 @@ define("APPURL", "http://localhost/hotel-booking/hotel-booking");
 	<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,500,500i,600,600i,700,700i&display=swap" rel="stylesheet">
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+	
 
 	<link rel="stylesheet" href="<?php echo APPURL; ?>/css/animate.css">
 
@@ -27,7 +32,6 @@ define("APPURL", "http://localhost/hotel-booking/hotel-booking");
 	<link rel="stylesheet" href="<?php echo APPURL; ?>/css/bootstrap-datepicker.css">
 	<link rel="stylesheet" href="<?php echo APPURL; ?>/css/jquery.timepicker.css">
 
-	<link rel="stylesheet" href="<?php echo APPURL; ?>/css/flaticon.css">
 	<link rel="stylesheet" href="<?php echo APPURL; ?>/css/style.css">
 </head>
 

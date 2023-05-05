@@ -126,7 +126,7 @@ $allRooms = $rooms->fetchAll(PDO::FETCH_OBJ);
 						</div>
 						<div class="services-2 col-lg-6 d-flex w-100">
 							<div class="icon d-flex justify-content-center align-items-center">
-								<span class="flaticon-workout"></span>
+								<span ><i class="fa-thin fa-mug-saucer fa-bounce" style="color: #04070b;"></i></span>
 							</div>
 							<div class="media-body pl-3">
 								<h3 class="heading">Hot Showers</h3>
