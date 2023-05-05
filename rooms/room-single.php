@@ -1,13 +1,41 @@
 <?php require "../includes/header.php"; ?>
 <?php require "../config/config.php"; ?>
 
-<div class="hero-wrap js-fullheight" style="background-image: url('<?php echo APPURL; ?>/images/room-1.jpg');" data-stellar-background-ratio="0.5">
+<!--Data for the rooms-->
+<?php
+
+if (isset($_GET['id'])) {
+
+	$id = $_GET['id'];
+
+	//create a query
+
+	$room = $conn->query("SELECT * FROM rooms WHERE status =1 AND  id='$id'");
+	$room->execute();
+
+	$singleRoom = $room->fetch(PDO::FETCH_OBJ);
+
+	//Amenities for room query
+
+	$utilities = $conn->query("SELECT * FROM utilities WHERE room_id='$id'");
+	$utilities->execute();
+
+	$allUtilities = $utilities->fetchAll(PDO::FETCH_OBJ);
+}
+
+
+
+
+
+?>
+
+<div class="hero-wrap js-fullheight" style="background-image: url('<?php echo APPURL; ?>/images/<?php echo $singleRoom->image; ?>');" data-stellar-background-ratio="0.5">
 	<div class="overlay"></div>
 	<div class="container">
 		<div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
 			<div class="col-md-7 ftco-animate">
 				<h2 class="subheading">Welcome to Vacation Rental</h2>
-				<h1 class="mb-4">Suite Room</h1>
+				<h1 class="mb-4"><?php echo $singleRoom->name; ?></h1>
 				<!-- <p><a href="#" class="btn btn-primary">Learn more</a> <a href="#" class="btn btn-white">Contact us</a></p> -->
 			</div>
 		</div>
@@ -92,78 +120,22 @@
 				<div class="pl-md-5">
 					<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
 					<div class="row">
+						<!--Here we are going to use a loop for each amenity to be fetched from the DB-->
+						<?php foreach($allUtilities as $utility) : ?>
+
 						<div class="services-2 col-lg-6 d-flex w-100">
 							<div class="icon d-flex justify-content-center align-items-center">
-								<span class="flaticon-diet"></span>
+								<span class="<?php echo $utility->icon; ?>"></span>
 							</div>
 							<div class="media-body pl-3">
-								<h3 class="heading">Tea Coffee</h3>
-								<p>A small river named Duden flows by their place and supplies it with the necessary</p>
+								<h3 class="heading"><?php echo $utility->name; ?></h3>
+								<p><?php echo $utility->description; ?></p>
 							</div>
 						</div>
-						<div class="services-2 col-lg-6 d-flex w-100">
-							<div class="icon d-flex justify-content-center align-items-center">
-								<span class="flaticon-workout"></span>
-							</div>
-							<div class="media-body pl-3">
-								<h3 class="heading">Hot Showers</h3>
-								<p>A small river named Duden flows by their place and supplies it with the necessary</p>
-							</div>
-						</div>
-						<div class="services-2 col-lg-6 d-flex w-100">
-							<div class="icon d-flex justify-content-center align-items-center">
-								<span class="flaticon-diet-1"></span>
-							</div>
-							<div class="media-body pl-3">
-								<h3 class="heading">Laundry</h3>
-								<p>A small river named Duden flows by their place and supplies it with the necessary</p>
-							</div>
-						</div>
-						<div class="services-2 col-lg-6 d-flex w-100">
-							<div class="icon d-flex justify-content-center align-items-center">
-								<span class="flaticon-first"></span>
-							</div>
-							<div class="media-body pl-3">
-								<h3 class="heading">Air Conditioning</h3>
-								<p>A small river named Duden flows by their place and supplies it with the necessary</p>
-							</div>
-						</div>
-						<div class="services-2 col-lg-6 d-flex w-100">
-							<div class="icon d-flex justify-content-center align-items-center">
-								<span class="flaticon-first"></span>
-							</div>
-							<div class="media-body pl-3">
-								<h3 class="heading">Free Wifi</h3>
-								<p>A small river named Duden flows by their place and supplies it with the necessary</p>
-							</div>
-						</div>
-						<div class="services-2 col-lg-6 d-flex w-100">
-							<div class="icon d-flex justify-content-center align-items-center">
-								<span class="flaticon-first"></span>
-							</div>
-							<div class="media-body pl-3">
-								<h3 class="heading">Kitchen</h3>
-								<p>A small river named Duden flows by their place and supplies it with the necessary</p>
-							</div>
-						</div>
-						<div class="services-2 col-lg-6 d-flex w-100">
-							<div class="icon d-flex justify-content-center align-items-center">
-								<span class="flaticon-first"></span>
-							</div>
-							<div class="media-body pl-3">
-								<h3 class="heading">Ironing</h3>
-								<p>A small river named Duden flows by their place and supplies it with the necessary</p>
-							</div>
-						</div>
-						<div class="services-2 col-lg-6 d-flex w-100">
-							<div class="icon d-flex justify-content-center align-items-center">
-								<span class="flaticon-first"></span>
-							</div>
-							<div class="media-body pl-3">
-								<h3 class="heading">Lovkers</h3>
-								<p>A small river named Duden flows by their place and supplies it with the necessary</p>
-							</div>
-						</div>
+
+						<?php endforeach; ?>
+
+
 					</div>
 				</div>
 			</div>
