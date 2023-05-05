@@ -117,7 +117,8 @@ $allRooms = $rooms->fetchAll(PDO::FETCH_OBJ);
 					<div class="row">
 						<div class="services-2 col-lg-6 d-flex w-100">
 							<div class="icon d-flex justify-content-center align-items-center">
-								<span class="flaticon-diet"></span>
+								<span><i class="fa fa-coffee" aria-hidden="true"></i>
+								</span>
 							</div>
 							<div class="media-body pl-3">
 								<h3 class="heading">Tea Coffee</h3>
@@ -126,7 +127,8 @@ $allRooms = $rooms->fetchAll(PDO::FETCH_OBJ);
 						</div>
 						<div class="services-2 col-lg-6 d-flex w-100">
 							<div class="icon d-flex justify-content-center align-items-center">
-								<span ><i class="fa-thin fa-mug-saucer fa-bounce" style="color: #04070b;"></i></span>
+								<span><i class="fa fa-shower" aria-hidden="true"></i>
+								</span>
 							</div>
 							<div class="media-body pl-3">
 								<h3 class="heading">Hot Showers</h3>
@@ -135,7 +137,8 @@ $allRooms = $rooms->fetchAll(PDO::FETCH_OBJ);
 						</div>
 						<div class="services-2 col-lg-6 d-flex w-100">
 							<div class="icon d-flex justify-content-center align-items-center">
-								<span class="flaticon-diet-1"></span>
+								<span><i class="fa fa-suitcase" aria-hidden="true"></i>
+								</span>
 							</div>
 							<div class="media-body pl-3">
 								<h3 class="heading">Laundry</h3>
@@ -144,7 +147,8 @@ $allRooms = $rooms->fetchAll(PDO::FETCH_OBJ);
 						</div>
 						<div class="services-2 col-lg-6 d-flex w-100">
 							<div class="icon d-flex justify-content-center align-items-center">
-								<span class="flaticon-first"></span>
+								<span><i class="fa fa-snowflake-o" aria-hidden="true"></i>
+								</span>
 							</div>
 							<div class="media-body pl-3">
 								<h3 class="heading">Air Conditioning</h3>
@@ -153,7 +157,8 @@ $allRooms = $rooms->fetchAll(PDO::FETCH_OBJ);
 						</div>
 						<div class="services-2 col-lg-6 d-flex w-100">
 							<div class="icon d-flex justify-content-center align-items-center">
-								<span class="flaticon-first"></span>
+								<span><i class="fa fa-wifi" aria-hidden="true"></i>
+								</span>
 							</div>
 							<div class="media-body pl-3">
 								<h3 class="heading">Free Wifi</h3>
@@ -162,28 +167,31 @@ $allRooms = $rooms->fetchAll(PDO::FETCH_OBJ);
 						</div>
 						<div class="services-2 col-lg-6 d-flex w-100">
 							<div class="icon d-flex justify-content-center align-items-center">
-								<span class="flaticon-first"></span>
+								<span><i class="fa fa-cutlery" aria-hidden="true"></i>
+								</span>
 							</div>
 							<div class="media-body pl-3">
-								<h3 class="heading">Kitchen</h3>
+								<h3 class="heading">Room Service</h3>
 								<p>A small river named Duden flows by their place and supplies it with the necessary</p>
 							</div>
 						</div>
 						<div class="services-2 col-lg-6 d-flex w-100">
 							<div class="icon d-flex justify-content-center align-items-center">
-								<span class="flaticon-first"></span>
+								<span><i class="fa fa-television" aria-hidden="true"></i>
+								</span>
 							</div>
 							<div class="media-body pl-3">
-								<h3 class="heading">Ironing</h3>
+								<h3 class="heading">TV</h3>
 								<p>A small river named Duden flows by their place and supplies it with the necessary</p>
 							</div>
 						</div>
 						<div class="services-2 col-lg-6 d-flex w-100">
 							<div class="icon d-flex justify-content-center align-items-center">
-								<span class="flaticon-first"></span>
+								<span><i class="fa fa-taxi" aria-hidden="true"></i>
+								</span>
 							</div>
 							<div class="media-body pl-3">
-								<h3 class="heading">Lovkers</h3>
+								<h3 class="heading">Shuttle</h3>
 								<p>A small river named Duden flows by their place and supplies it with the necessary</p>
 							</div>
 						</div>
