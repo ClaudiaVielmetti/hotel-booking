@@ -95,6 +95,7 @@ $allRooms = $rooms->fetchAll(PDO::FETCH_OBJ);
 	</div>
 </section>
 
+
 <section class="ftco-section bg-light">
 	<div class="container">
 		<div class="row no-gutters">

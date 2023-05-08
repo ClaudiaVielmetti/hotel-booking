@@ -123,15 +123,15 @@ if (isset($_GET['id'])) {
 						<!--Here we are going to use a loop for each amenity to be fetched from the DB-->
 						<?php foreach($allUtilities as $utility) : ?>
 
-						<div class="services-2 col-lg-6 d-flex w-100">
-							<div class="icon d-flex justify-content-center align-items-center">
-								<span class="<?php echo $utility->icon; ?>"></span>
+							<div class="services-2 col-lg-6 d-flex w-100">
+								<div class="icon d-flex justify-content-center align-items-center">
+									<span class="<?php echo $utility->icon; ?>"></span>
+								</div>
+								<div class="media-body pl-3">
+									<h3 class="heading"><?php echo $utility->name; ?></h3>
+									<p><?php echo $utility->description; ?></p>
+								</div>
 							</div>
-							<div class="media-body pl-3">
-								<h3 class="heading"><?php echo $utility->name; ?></h3>
-								<p><?php echo $utility->description; ?></p>
-							</div>
-						</div>
 
 						<?php endforeach; ?>
 
