@@ -21,6 +21,11 @@ if (isset($_GET['id'])) {
 	$utilities->execute();
 
 	$allUtilities = $utilities->fetchAll(PDO::FETCH_OBJ);
+
+
+	//Validate booking data
+
+	 
 }
 
 
