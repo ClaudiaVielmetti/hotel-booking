@@ -26,49 +26,50 @@ if (isset($_GET['id'])) {
 	//Validate booking data
 
 	 
-    if(isset($_POST['submit'])) {
+	if(isset($_POST['submit'])) {
 
-        if(empty($_POST['email']) OR empty($_POST['phone_number']) 
-		OR empty($_POST['check_in'])OR empty($_POST['check_out'])) {
-          echo "<script>alert('One or more inputs are empty')</script>";
-        } else {
-
+		if(empty($_POST['email']) OR empty($_POST['phone_number']) 
+		OR empty($_POST['check_in']) OR empty($_POST['check_out'])) {
+			echo "<script>alert('One or more inputs are empty')</script>";
+		} else {
+	
 			//validate the date
-
+	
 			$check_in = $_POST['check_in'];
 			$check_out = $_POST['check_out'];
 			$email = $_POST['email'];
 			$phone_number = $_POST['phone_number'];
 			$full_name = $_POST['full_name'];
-			$hotel_name = $_POST['hotel_name'];
-			$room_name = $_POST['room_name'];
+			$hotel_name = $singleRoom->hotel_name;
+			$room_name = $singleRoom ->name;
 			$user_id = $_SESSION['id'];
-
+	
 			if(date("Y/m/d") > $check_in OR date("Y/m/d") > $check_out) {
 				echo "<script>alert('Check-in date must be less than check-out date')</script>";
-
+	
 			} else {
 				if($check_in > $check_out) {
 					echo "<script>alert('Check-in date must be less than check-out date')</script>";
 				} else {
 					$booking = $conn->prepare("INSERT INTO bookings (email, phone_number, full_name, hotel_name, room_name, check_in, check_out, user_id) 
-					VALUES (:check_in, :check_out, :full_name, :hotel_name, :room_name, :check_in, :check_out, :user_id)");
-
-					$booking->execute([
-						":check_in" => $check_in,
-						":check_out" => $check_out,
+					VALUES (:email, :phone_number, :full_name, :hotel_name, :room_name, :check_in, :check_out, :user_id)");
+	
+					$booking->execute ([
 						":email" => $email,
 						":phone_number" => $phone_number,
 						":full_name" => $full_name,
 						":hotel_name" => $hotel_name,
 						":room_name" => $room_name,
+						":check_in" => $check_in,
+						":check_out" => $check_out,
 						":user_id" => $user_id
 					]);
 				}
-		
+	
 			}
 		}
-	}	
+	}
+	
 }
 
 
@@ -94,7 +95,7 @@ if (isset($_GET['id'])) {
 	<div class="container">
 		<div class="row justify-content-end">
 			<div class="col-lg-4">
-				<form action="room-single.php" method="POST" class="appointment-form" style="margin-top: -568px;">
+				<form action="room-single.php?id=<?php echo $singleRoom->id; ?>" method="POST" class="appointment-form" style="margin-top: -568px;">
 					<h3 class="mb-3">Book this room</h3>
 					<div class="row">
 						<div class="col-md-12">
