@@ -25,36 +25,37 @@ if (isset($_GET['id'])) {
 
 	//Validate booking data
 
-	 
-	if(isset($_POST['submit'])) {
 
-		if(empty($_POST['email']) OR empty($_POST['phone_number']) 
-		OR empty($_POST['check_in']) OR empty($_POST['check_out'])) {
+	if (isset($_POST['submit'])) {
+
+		if (
+			empty($_POST['email']) or empty($_POST['phone_number'])
+			or empty($_POST['check_in']) or empty($_POST['check_out'])
+		) {
 			echo "<script>alert('One or more inputs are empty')</script>";
 		} else {
-	
+
 			//validate the date
-	
+
 			$check_in = $_POST['check_in'];
 			$check_out = $_POST['check_out'];
 			$email = $_POST['email'];
 			$phone_number = $_POST['phone_number'];
 			$full_name = $_POST['full_name'];
 			$hotel_name = $singleRoom->hotel_name;
-			$room_name = $singleRoom ->name;
+			$room_name = $singleRoom->name;
 			$user_id = $_SESSION['id'];
-	
-			if(date("Y/m/d") > $check_in OR date("Y/m/d") > $check_out) {
+
+			if (date("Y/m/d") > $check_in or date("Y/m/d") > $check_out) {
 				echo "<script>alert('Check-in date must be less than check-out date')</script>";
-	
 			} else {
-				if($check_in > $check_out) {
+				if ($check_in > $check_out) {
 					echo "<script>alert('Check-in date must be less than check-out date')</script>";
 				} else {
 					$booking = $conn->prepare("INSERT INTO bookings (email, phone_number, full_name, hotel_name, room_name, check_in, check_out, user_id) 
 					VALUES (:email, :phone_number, :full_name, :hotel_name, :room_name, :check_in, :check_out, :user_id)");
-	
-					$booking->execute ([
+
+					$booking->execute([
 						":email" => $email,
 						":phone_number" => $phone_number,
 						":full_name" => $full_name,
@@ -65,11 +66,9 @@ if (isset($_GET['id'])) {
 						":user_id" => $user_id
 					]);
 				}
-	
 			}
 		}
 	}
-	
 }
 
 
@@ -120,7 +119,7 @@ if (isset($_GET['id'])) {
 							<div class="form-group">
 								<div class="input-wrap">
 									<div class="icon"><span class="ion-md-calendar"></span></div>
-									<input type="text"  name="check_in" class="form-control appointment_date-check-in" placeholder="Check-In">
+									<input type="text" name="check_in" class="form-control appointment_date-check-in" placeholder="Check-In">
 								</div>
 							</div>
 						</div>
@@ -170,7 +169,7 @@ if (isset($_GET['id'])) {
 					<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
 					<div class="row">
 						<!--Here we are going to use a loop for each amenity to be fetched from the DB-->
-						<?php foreach($allUtilities as $utility) : ?>
+						<?php foreach ($allUtilities as $utility) : ?>
 
 							<div class="services-2 col-lg-6 d-flex w-100">
 								<div class="icon d-flex justify-content-center align-items-center">
