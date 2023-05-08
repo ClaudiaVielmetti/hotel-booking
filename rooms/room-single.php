@@ -26,6 +26,49 @@ if (isset($_GET['id'])) {
 	//Validate booking data
 
 	 
+    if(isset($_POST['submit'])) {
+
+        if(empty($_POST['email']) OR empty($_POST['phone_number']) 
+		OR empty($_POST['check_in'])OR empty($_POST['check_out'])) {
+          echo "<script>alert('One or more inputs are empty')</script>";
+        } else {
+
+			//validate the date
+
+			$check_in = $_POST['check_in'];
+			$check_out = $_POST['check_out'];
+			$email = $_POST['email'];
+			$phone_number = $_POST['phone_number'];
+			$full_name = $_POST['full_name'];
+			$hotel_name = $_POST['hotel_name'];
+			$room_name = $_POST['room_name'];
+			$user_id = $_SESSION['id'];
+
+			if(date("Y/m/d") > $check_in OR date("Y/m/d") > $check_out) {
+				echo "<script>alert('Check-in date must be less than check-out date')</script>";
+
+			} else {
+				if($check_in > $check_out) {
+					echo "<script>alert('Check-in date must be less than check-out date')</script>";
+				} else {
+					$booking = $conn->prepare("INSERT INTO bookings (email, phone_number, full_name, hotel_name, room_name, check_in, check_out, user_id) 
+					VALUES (:check_in, :check_out, :full_name, :hotel_name, :room_name, :check_in, :check_out, :user_id)");
+
+					$booking->execute([
+						":check_in" => $check_in,
+						":check_out" => $check_out,
+						":email" => $email,
+						":phone_number" => $phone_number,
+						":full_name" => $full_name,
+						":hotel_name" => $hotel_name,
+						":room_name" => $room_name,
+						":user_id" => $user_id
+					]);
+				}
+		
+			}
+		}
+	}	
 }
 
 
