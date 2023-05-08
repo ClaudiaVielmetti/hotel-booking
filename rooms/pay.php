@@ -26,7 +26,7 @@
 
     <div class="container">  
                     <!-- Replace "test" with your own sandbox Business account app client ID -->
-                    <script src="https://www.paypal.com/sdk/js?client-id=test&currency=USD"></script>
+                    <script src="https://www.paypal.com/sdk/js?client-id=AZvKrg1e58TRN4byOOAGbDKgReTlduLAu3Rr5VjAQpYbvWLP7ro5kJ_BInixNAd30BirEUcuuANWO1DN&currency=USD"></script>
                     <!-- Set up a container element for the button -->
                     <div id="paypal-button-container"></div>
                     <script>
@@ -36,7 +36,7 @@
                             return actions.order.create({
                             purchase_units: [{
                                 amount: {
-                                value: '300' // Can also reference a variable or function
+                                value: '100' // Can also reference a variable or function
                                 }
                             }]
                             });
@@ -45,7 +45,7 @@
                         onApprove: (data, actions) => {
                             return actions.order.capture().then(function(orderData) {
                           
-                             window.location.href='index.php';
+                             window.location.href='../index.php';
                             });
                         }
                         }).render('#paypal-button-container');
