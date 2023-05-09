@@ -35,7 +35,7 @@ if (isset($_GET['id'])) {
 			echo "<script>alert('One or more inputs are empty')</script>";
 		} else {
 
-			//validate the date
+			//validate the date & form submission
 
 			$check_in = $_POST['check_in'];
 			$check_out = $_POST['check_out'];
@@ -45,6 +45,12 @@ if (isset($_GET['id'])) {
 			$hotel_name = $singleRoom->hotel_name;
 			$room_name = $singleRoom->name;
 			$user_id = $_SESSION['id'];
+			$status = "pending"; //Sent to admin page
+
+
+			// getting the price for the rooms per night using session
+
+			$_SESSION['price'] = $singleRoom->price;
 
 			if (date("Y/m/d") > $check_in or date("Y/m/d") > $check_out) {
 				echo "<script>alert('Check-in date must be less than check-out date')</script>";
