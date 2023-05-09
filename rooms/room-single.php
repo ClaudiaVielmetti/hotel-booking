@@ -32,9 +32,9 @@ if (isset($_GET['id'])) {
 		) {
 			echo "<script>alert('One or more inputs are empty')</script>";
 		} else {
-	
+
 			//validate the date & form submission
-	
+
 			$check_in = $_POST['check_in'];
 			$check_out = $_POST['check_out'];
 			$email = $_POST['email'];
@@ -43,14 +43,14 @@ if (isset($_GET['id'])) {
 			$hotel_name = $singleRoom->hotel_name;
 			$room_name = $singleRoom->name;
 			$user_id = $_SESSION['id'];
-			$status = "pending"; //Sent to admin page
+			$status = "Pending"; //Sent to admin page
 			$payment = $singleRoom->price;
-	
-	
+
+
 			// getting the price for the rooms per night using session
-	
+
 			$_SESSION['price'] = $singleRoom->price;
-	
+
 			if (date("Y/m/d") > $check_in or date("Y/m/d") > $check_out) {
 				echo "<script>alert('Check-in date must be less than check-out date')</script>";
 			} else {
@@ -59,7 +59,7 @@ if (isset($_GET['id'])) {
 				} else {
 					$booking = $conn->prepare("INSERT INTO bookings (email, phone_number, full_name, hotel_name, room_name, status, payment, check_in, check_out, user_id) 
 					VALUES (:email, :phone_number, :full_name, :hotel_name, :room_name, :status, :payment, :check_in, :check_out, :user_id)");
-	
+
 					// Check if $user_id is set before executing the query
 					if (isset($user_id)) {
 						$booking->execute([
@@ -77,19 +77,16 @@ if (isset($_GET['id'])) {
 					} else {
 						echo "<script>alert('User ID is not set.')</script>";
 					}
-	
-					echo "<script>window.location.href='".APPURL."/rooms/pay.php'</script>";
+
+					echo "<script>window.location.href='" . APPURL ."/rooms/pay.php'</script>";
 				}
+
 			}
+
 		}
+		
 	}
 }
-	
-
-
-
-
-
 
 
 
