@@ -46,6 +46,7 @@ if (isset($_GET['id'])) {
 			$room_name = $singleRoom->name;
 			$user_id = $_SESSION['id'];
 			$status = "pending"; //Sent to admin page
+			$payment = $singleRoom->price;
 
 
 			// getting the price for the rooms per night using session
