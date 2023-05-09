@@ -59,8 +59,8 @@ if (isset($_GET['id'])) {
 				if ($check_in > $check_out) {
 					echo "<script>alert('Check-in date must be less than check-out date')</script>";
 				} else {
-					$booking = $conn->prepare("INSERT INTO bookings (email, phone_number, full_name, hotel_name, room_name, check_in, check_out, user_id) 
-					VALUES (:email, :phone_number, :full_name, :hotel_name, :room_name, :check_in, :check_out, :user_id)");
+					$booking = $conn->prepare("INSERT INTO bookings (email, phone_number, full_name, hotel_name, room_name, status, payment, check_in, check_out, user_id) 
+					VALUES (:email, :phone_number, :full_name, :hotel_name, :room_name, :status, :payment, :check_in, :check_out, :user_id)");
 
 					$booking->execute([
 						":email" => $email,
@@ -68,10 +68,15 @@ if (isset($_GET['id'])) {
 						":full_name" => $full_name,
 						":hotel_name" => $hotel_name,
 						":room_name" => $room_name,
+						":status" => $status,
+						":payment" => $payment,
 						":check_in" => $check_in,
 						":check_out" => $check_out,
-						":user_id" => $user_id
+						":user_id" => $user_id,
+
 					]);
+
+					echo "<script>window.location.href='".APPURL."/rooms/pay.php'</script>";
 				}
 			}
 		}
