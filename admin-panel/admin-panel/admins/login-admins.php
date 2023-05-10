@@ -34,14 +34,14 @@ if (isset($_POST['submit'])) {
 
       if (password_verify($password, $fetch['mypassword'])) {
 
-        echo "<script>alert('LOGGED IN')</script>";
+        //echo "<script>alert('LOGGED IN')</script>";
 
         //start session variables
 
-        // $_SESSION['username'] = $fetch['username'];
-        // $_SESSION['id'] = $fetch['id'];
+         $_SESSION['admin_name'] = $fetch['admin_name'];
+         $_SESSION['id'] = $fetch['id'];
 
-        // header("location: " . APPURL . "");
+         header("location: " . ADMINURL . "");
       } else {
 
         echo "<script>alert('EMAIL OR PASSWORD IS INCORRECT')</script>";
