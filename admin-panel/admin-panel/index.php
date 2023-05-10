@@ -9,12 +9,26 @@ if(!isset($_SESSION['admin_name'])){
   
 }
 
-//Hotel Count
+ //Hotel Count
 
   $hotels = $conn->query("SELECT COUNT(*) AS count_hotels FROM `hotels`");
   $hotels->execute();
 
   $alllHotels = $hotels->fetch(PDO::FETCH_OBJ);
+
+  //Admin Count
+
+  $admins = $conn->query("SELECT COUNT(*) AS count_admins FROM `admins`");
+  $admins->execute();
+
+  $alllAdmins = $admins->fetch(PDO::FETCH_OBJ);
+
+  //Rooms Count
+
+  $rooms = $conn->query("SELECT COUNT(*) AS count_rooms FROM `rooms`");
+  $rooms->execute();
+
+  $allRooms = $rooms->fetch(PDO::FETCH_OBJ);
 
 ?>
 
@@ -37,7 +51,7 @@ if(!isset($_SESSION['admin_name'])){
         <div class="card-body">
           <h5 class="card-title">Rooms</h5>
 
-          <p class="card-text">number of rooms: 4</p>
+          <p class="card-text">Number of Rooms: <?php echo $allRooms->count_rooms; ?></p>
 
         </div>
       </div>
@@ -47,7 +61,7 @@ if(!isset($_SESSION['admin_name'])){
         <div class="card-body">
           <h5 class="card-title">Admins</h5>
 
-          <p class="card-text">number of admins: 3</p>
+          <p class="card-text">Number of Admins: <?php echo $alllAdmins->count_admins; ?></p>
 
         </div>
       </div>
