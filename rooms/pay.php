@@ -4,7 +4,7 @@
 
       if(!isset($_SERVER['HTTP_REFERER'])){
         // redirect them to your desired location
-        header('location: http://localhost/hotel-booking/hotel-booking/index.php');
+        echo "<script>window.location.href='" .APPURL. "' </script>";
         exit;
     }
 
