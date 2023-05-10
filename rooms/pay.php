@@ -1,5 +1,15 @@
 <?php require "../includes/header.php"; ?>
 <?php require "../config/config.php"; ?>
+<?php 
+
+      if(!isset($_SERVER['HTTP_REFERER'])){
+        // redirect them to your desired location
+        header('location: http://localhost/hotel-booking/hotel-booking/index.php');
+        exit;
+    }
+
+
+?>
 
 <div class="hero-wrap js-fullheight" style="background-image: url('<?php echo APPURL; ?>/images/image_2.jpg');" data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
