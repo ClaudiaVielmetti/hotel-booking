@@ -1,11 +1,11 @@
 <?php require 'layouts/header.php'; ?>
-<?php
+<!-- <?php
 
   
-  if(isset($_SESSION['admin_name'])){
-    echo "<script>window.location.href='" .ADMINURL. "/admins/login-admins.php' </script>";
-  }
-?>
+  // if(isset($_SESSION['admin_name'])){
+  //   echo "<script>window.location.href='" .ADMINURL. "/admins/login-admins.php' </script>";
+  // }
+?> -->
 
 
 <div class="container-fluid">
