@@ -45,7 +45,8 @@ if (isset($_GET['id'])) {
 			$user_id = $_SESSION['id'];
 			$status = "Pending"; //Sent to admin page
 			$payment = $singleRoom->price;
-			$days = date_diff($check_in, $check_out)->format("%R%a");
+			$days = date_diff($check_in, $check_out);
+			echo intval($days->format('%R%a'));
 
 
 			// getting the price for the rooms per night using session
