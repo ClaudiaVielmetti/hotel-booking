@@ -35,6 +35,13 @@
 
 <div class="container">
 
+
+<?php 
+// display when user has not made any bookings
+
+    if(count($allBookings) > 0) : ?>
+
+
     <table class="table mt-5">
         <thead>
             <tr>
@@ -64,10 +71,15 @@
                 <td><?php echo $booking->status; ?></td>
                 <td><?php echo $booking->created_at; ?></td>
             </tr>
-        
-        </tbody>
         <?php endforeach; ?>
+        </tbody>
+        
     </table>
+    <?php else : ?> 
+        <div class="alert alert-warning">
+            <h3>No bookings made yet</h3>
+        </div>
+    <?php endif; ?>
 </div>
 
 <?php require "../includes/footer.php"; ?>
