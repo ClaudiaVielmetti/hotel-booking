@@ -35,8 +35,8 @@ if (isset($_GET['id'])) {
 
 			//validate the date & form submission
 
-			$check_in = $_POST['check_in'];
-			$check_out = $_POST['check_out'];
+			$check_in = date_create($_POST['check_in']);
+			$check_out = date_create($_POST['check_out']);
 			$email = $_POST['email'];
 			$phone_number = $_POST['phone_number'];
 			$full_name = $_POST['full_name'];
@@ -45,6 +45,7 @@ if (isset($_GET['id'])) {
 			$user_id = $_SESSION['id'];
 			$status = "Pending"; //Sent to admin page
 			$payment = $singleRoom->price;
+			$days = date_diff($check_in, $check_out)->format("%R%a");
 
 
 			// getting the price for the rooms per night using session
