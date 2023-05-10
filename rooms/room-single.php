@@ -75,6 +75,7 @@ if (isset($_GET['id'])) {
 							":status" => $status,
 							":payment" => $_SESSION['price'],
 							// changing to super variable so that the output is in string not date
+							//using only the variables it will be entered as dates - we don't want that
 							":check_in" => $_POST['check_in'],
 							":check_out" => $_POST['check_out'],
 							":user_id" => $user_id,
