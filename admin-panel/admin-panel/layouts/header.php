@@ -10,7 +10,7 @@ define("ADMINURL", "http://localhost/hotel-booking/hotel-booking/admin-panel/adm
 
 <head>
   <meta charset="utf-8">
- 
+
   <title>Admin Panel</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
@@ -29,43 +29,54 @@ define("ADMINURL", "http://localhost/hotel-booking/hotel-booking/admin-panel/adm
         </button>
 
         <div class="collapse navbar-collapse" id="navbarText">
-          <ul class="navbar-nav side-nav">
-            <li class="nav-item">
-              <a class="nav-link" style="margin-left: 20px;" href="index.html">Home
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="admins/admins.html" style="margin-left: 20px;">Admins</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="hotels-admins/show-hotels.html" style="margin-left: 20px;">Hotels</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="rooms-admins/show-rooms.html" style="margin-left: 20px;">Rooms</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="bookings-admins/show-bookings.html" style="margin-left: 20px;">Bookings</a>
-            </li>
-          </ul>
-          <ul class="navbar-nav ml-md-auto d-md-flex">
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Home
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="admins/login-admins.html">login
-              </a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link  dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <?php echo $_SESSION['admin_name']; ?>
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="<?php echo ADMINURL; ?>/admins/logout.php">Logout</a>
 
-            </li>
+          <!-- if logged in the log in option will be hidden -->
+
+          <?php if (isset($_SESSION['admin_name'])) : ?>
+            <ul class="navbar-nav side-nav">
+              <li class="nav-item">
+                <a class="nav-link" style="margin-left: 20px;" href="index.html">Home
+                  <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="admins/admins.html" style="margin-left: 20px;">Admins</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="hotels-admins/show-hotels.html" style="margin-left: 20px;">Hotels</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="rooms-admins/show-rooms.html" style="margin-left: 20px;">Rooms</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="bookings-admins/show-bookings.html" style="margin-left: 20px;">Bookings</a>
+              </li>
+            </ul>
+          <?php endif; ?>
+
+          <ul class="navbar-nav ml-md-auto d-md-flex">
+            <?php if (!isset($_SESSION['admin_name'])) : ?>
+              <li class="nav-item">
+                <a class="nav-link" href="admins/login-admins.html">login
+                </a>
+              </li>
+            <?php else : ?>
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Home
+                  <span class="sr-only">(current)</span>
+                </a>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a class="nav-link  dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <?php echo $_SESSION['admin_name']; ?>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="<?php echo ADMINURL; ?>/admins/logout.php">Logout</a>
+
+              </li>
+
+            <?php endif; ?>
 
 
           </ul>
