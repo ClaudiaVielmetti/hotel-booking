@@ -6,8 +6,8 @@
 //using js to redirect as php is giving issues
 //this is to not be able to access the login page if already logged in
 
-if(isset($_SESSION['admin_name'])){
-  echo "<script>window.location.href='" .ADMINURL. "' </script>";
+if (isset($_SESSION['admin_name'])) {
+  echo "<script>window.location.href='" . ADMINURL . "' </script>";
 }
 
 //VALIDATE FORM SUBMISSION
@@ -38,10 +38,10 @@ if (isset($_POST['submit'])) {
 
         //start session variables
 
-         $_SESSION['admin_name'] = $fetch['admin_name'];
-         $_SESSION['id'] = $fetch['id'];
+        $_SESSION['admin_name'] = $fetch['admin_name'];
+        $_SESSION['id'] = $fetch['id'];
 
-         header("location: " . ADMINURL . "");
+        header("location: " . ADMINURL . "");
       } else {
 
         echo "<script>alert('EMAIL OR PASSWORD IS INCORRECT')</script>";

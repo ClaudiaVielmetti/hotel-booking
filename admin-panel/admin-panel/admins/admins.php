@@ -6,14 +6,14 @@
 <?php
 
 
-  if (!isset($_SESSION['admin_name'])) {
-    echo "<script>window.location.href='".ADMINURL. "/admins/login-admins.php' </script>";
-  }
+if (!isset($_SESSION['admin_name'])) {
+  echo "<script>window.location.href='" . ADMINURL . "/admins/login-admins.php' </script>";
+}
 
-  $admins = $conn->query("SELECT * FROM admins");
-  $admins->execute();
+$admins = $conn->query("SELECT * FROM admins");
+$admins->execute();
 
-  $allAdmins = $admins->fetchAll(PDO::FETCH_OBJ);
+$allAdmins = $admins->fetchAll(PDO::FETCH_OBJ);
 
 ?>
 
