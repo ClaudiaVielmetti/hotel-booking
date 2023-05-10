@@ -46,12 +46,14 @@ if (isset($_GET['id'])) {
 			$status = "Pending"; //Sent to admin page
 			$payment = $singleRoom->price;
 			$days = date_diff($check_in, $check_out);
-			echo intval($days->format('%R%a'));
+			
 
 
 			// getting the price for the rooms per night using session
+			//creating a formula to get the price for multiple nights per room
+			//format %R%a will convert string into an integer. It will be changed into a string later
 
-			$_SESSION['price'] = $singleRoom->price;
+			$_SESSION['price'] = $singleRoom->price * intval($days->format('%R%a'));
 
 			if (date("Y/m/d") > $check_in or date("Y/m/d") > $check_out) {
 				echo "<script>alert('Check-in date must be less than check-out date')</script>";
@@ -71,9 +73,10 @@ if (isset($_GET['id'])) {
 							":hotel_name" => $hotel_name,
 							":room_name" => $room_name,
 							":status" => $status,
-							":payment" => $payment,
-							":check_in" => $check_in,
-							":check_out" => $check_out,
+							":payment" => $_SESSION['price'],
+							// changing to super variable so that the output is in string not date
+							":check_in" => $_POST['check_in'],
+							":check_out" => $_POST['check_out'],
 							":user_id" => $user_id,
 						]);
 					} else {
