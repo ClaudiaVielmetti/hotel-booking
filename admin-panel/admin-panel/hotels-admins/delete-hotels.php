@@ -1,3 +1,6 @@
+<?php require '../layouts/header.php'; ?>
+<?php require '../admins/config/config-admin.php'; ?>
+
 <?php
 
 //only able to delete image from the hotels list
@@ -21,3 +24,5 @@
     }
 
 ?>
+
+<?php require '../layouts/footer.php'; ?>
