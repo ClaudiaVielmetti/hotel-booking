@@ -14,7 +14,7 @@
 
         $fetch = $getImage->fetch(PDO::FETCH_OBJ);
 
-        unlink('../../assets/images/hotels/' . $fetch->image);
+        unlink('hotel_images/' . $fetch->image);
 
 
         $delete = $conn->prepare("DELETE FROM hotels WHERE id = '$id'");
