@@ -33,7 +33,7 @@ $allRooms = $rooms->fetchAll(PDO::FETCH_OBJ);
               <th scope="col">view</th>
               <th scope="col">num of beds</th>
               <th scope="col">hotel name</th>
-              <th scope="col">status value</th>
+              <th scope="col">status</th>
               <th scope="col">change status</th>
               <th scope="col">delete</th>
             </tr>
