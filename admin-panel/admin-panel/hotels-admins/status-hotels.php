@@ -8,10 +8,10 @@ if (isset($_GET['id'])) {
   //check for form submission
   if (isset($_POST['submit'])) {
 
-    if (empty($_POST['status'])) {
-      echo "<script>alert('One or more inputs are empty')</script>";
-    } else {
-      $status = $_POST['status'];
+    // if (empty($_POST['status'])) {
+    //   echo "<script>alert('One or more inputs are empty')</script>";
+    // } else {
+    //   $status = $_POST['status'];
 
       $update = $conn->prepare("UPDATE hotels SET status = :status WHERE id = '$id'");
       $update->execute([
@@ -19,8 +19,8 @@ if (isset($_GET['id'])) {
       ]);
 
       header("Location: show-hotels.php");
-    }
-  }
+  //   }
+   }
 }
 
 ?>
