@@ -40,7 +40,7 @@ $allHotels = $hotels->fetchAll(PDO::FETCH_OBJ);
                 <th scope="row"><?php echo $hotel->id; ?></th>
                 <td><?php echo $hotel->name; ?></td>
                 <td><?php echo $hotel->location; ?></td>
-                <td>><?php echo $hotel->status; ?></td>
+                <td><?php echo $hotel->status; ?></td>
 
                 <td><a href="status-hotels.php?id=<?php echo $hotel->id; ?>" class="btn btn-warning text-white text-center ">status</a></td>
                 <td><a href="update-category.php?id=<?php echo $hotel->id; ?>" class="btn btn-warning text-white text-center ">Update </a></td>
