@@ -105,7 +105,7 @@ if (isset($_POST['submit'])) {
           <br>
 
           <select name="hotel_id" class="form-control">
-            <option>Choose Same Hotel Once ID</option>
+            <option>Choose Same Hotel ID</option>
             <?php foreach ($allHotels as $hotel) : ?>
               <option value="<?php echo $hotel->id; ?>"><?php echo $hotel->name; ?></option>
             <?php endforeach; ?>
