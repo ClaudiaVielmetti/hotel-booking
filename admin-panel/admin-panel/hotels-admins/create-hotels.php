@@ -23,7 +23,7 @@
         $image =$_FILES['image']['name'];
 
 
-        $dir ="hotels_images/" .basename($image);
+        $dir ="hotel_images/" . basename($image);
 
         $insert = $conn->prepare("INSERT INTO hotels (name, description, location, image)
         VALUES (:name, :description, :location, :image)");
