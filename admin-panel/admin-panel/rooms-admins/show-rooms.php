@@ -21,7 +21,7 @@ $allRooms = $rooms->fetchAll(PDO::FETCH_OBJ);
     <div class="card">
       <div class="card-body">
         <h5 class="card-title mb-4 d-inline">Rooms</h5>
-        <a href="create-rooms.html" class="btn btn-primary mb-4 text-center float-right">Create Room</a>
+        <a href="create-rooms.php" class="btn btn-primary mb-4 text-center float-right">Create Room</a>
         <table class="table">
           <thead>
             <tr>
