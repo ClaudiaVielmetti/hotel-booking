@@ -3,7 +3,7 @@
 
 <?php
 
-//only able to delete image from the hotels list
+//Delete Image as well as hotel. The image will be removed from the folder hotel_images
 
 
     if(isset($_GET['id'])) {
