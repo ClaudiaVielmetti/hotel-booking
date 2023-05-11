@@ -1,5 +1,5 @@
 <?php require '../layouts/header.php'; ?>
-<?php require 'config/config-admin.php'; ?>
+<?php require '../admins/config/config-admin.php'; ?>
 
 <?php
 
