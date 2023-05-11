@@ -3,7 +3,7 @@
 
 <?php
 
-//Delete Image as well as hotel. The image will be removed from the folder hotel_images
+//Delete Image as well as hotel. The image will be removed from the folder 
 
 
     if(isset($_GET['id'])) {
@@ -24,5 +24,7 @@
     }
 
 ?>
+
+
 
 <?php require '../layouts/footer.php'; ?>
