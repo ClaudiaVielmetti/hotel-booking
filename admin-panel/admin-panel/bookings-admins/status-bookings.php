@@ -32,7 +32,7 @@ if (isset($_GET['id'])) {
             <div class="card-body">
                 <h5 class="card-title mb-5 d-inline">Update Status</h5>
                 <form method="POST" action="status-bookings.php?id=<?php echo $id; ?>" enctype="multipart/form-data">
-                    <!-- Email input -->
+                    <!-- Update input -->
                     <select name="status" style="margin-top: 15px;" class="form-control">
                         <option>Choose Status</option>
                         <option value="Pending">Pending</option>
@@ -42,7 +42,7 @@ if (isset($_GET['id'])) {
 
 
                     <!-- Submit button -->
-                    <button style="margin-top: 10px;" type="submit" name="submit" class="btn btn-primary  mb-4 text-center">Update</button>
+                    <button style="margin-top: 10px;" type="submit" name="submit" class="btn btn-primary  mb-4 text-center">update</button>
 
 
                 </form>
